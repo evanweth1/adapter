@@ -151,7 +151,7 @@ void FanucAdapter::configMacrosAndPMC(const char *aIniFile)
 
 	char dnc[8];
 	ini_gets("focus", "dnc", "yes", dnc, 8, aIniFile);
-	mAllowDNC = _strnicmp(dnc, "no", 2) != 0;
+	mAllowDNC = strncasecmp()(dnc, "no", 2) != 0;
 
 	if (!mAllowDNC)
 		printf("Disabling retrieval of program header\n");
