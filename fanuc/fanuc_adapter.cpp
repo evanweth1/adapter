@@ -151,7 +151,7 @@ void FanucAdapter::configMacrosAndPMC(const char *aIniFile)
 
 	char dnc[8];
 	ini_gets("focus", "dnc", "yes", dnc, 8, aIniFile);
-	mAllowDNC = strncasecmp()(dnc, "no", 2) != 0;
+	mAllowDNC = strncasecmp(dnc, "no", 2) != 0;
 
 	if (!mAllowDNC)
 		printf("Disabling retrieval of program header\n");
@@ -159,7 +159,7 @@ void FanucAdapter::configMacrosAndPMC(const char *aIniFile)
 	//********** Added for DisplayHidden Setting *******
 	char dhdn[8];
 	ini_gets("settings", "displayhidden", "no", dhdn, 8, aIniFile);
-	mDisplayHidden = _strnicmp(dhdn, "no", 2) != 0;
+	mDisplayHidden = strncasecmp(dhdn, "no", 2) != 0;
 
 	if (!mDisplayHidden)
 		printf("Not showing hidden axis.\n");
